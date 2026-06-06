@@ -1,0 +1,32 @@
+name: Weekly JS Script Runner
+
+on:
+  schedule:
+    # This POSIX cron syntax tells GitHub to run the script every Sunday at 00:00 UTC
+    - cron: "0 0 * * 0"
+  workflow_dispatch: # This allows you to manually trigger the script anytime from the GitHub UI
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 1. Set up Node.js and cache dependencies for faster future runs
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm" # Automagically caches your node_modules based on package-lock.json
+
+      # 2. Install your exact dependencies safely
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Create credentials.json
+        run: echo '${{ secrets.GOOGLE_CREDENTIALS }}' > credentials.json
+
+      # 3. Execute your script
+      - name: Run script
+        run: node script.js
