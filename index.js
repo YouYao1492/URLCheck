@@ -320,15 +320,15 @@ async function main() {
     logData.push(["", ""]); // 空行
 
     // 詳細列表區塊
-    if (stats.successURLs.length > 0) {
-      logData.push(["✅ 成功", "試算表 ID", "工作表名稱", "行號", "URL"]);
-      stats.successURLs.forEach((row) => logData.push(row));
-      logData.push(["", "", "", "", ""]); // 空行
-    }
-
     if (stats.failedURLs.length > 0) {
       logData.push(["❌ 失效", "試算表 ID", "工作表名稱", "行號", "URL"]);
       stats.failedURLs.forEach((row) => logData.push(row));
+      logData.push(["", "", "", "", ""]); // 空行
+    }
+    
+    if (stats.successURLs.length > 0) {
+      logData.push(["✅ 成功", "試算表 ID", "工作表名稱", "行號", "URL"]);
+      stats.successURLs.forEach((row) => logData.push(row));
       logData.push(["", "", "", "", ""]); // 空行
     }
 
