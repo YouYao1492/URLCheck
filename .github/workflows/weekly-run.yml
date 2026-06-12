@@ -3,7 +3,7 @@ name: Weekly JS Script Runner
 on:
   schedule:
     # This POSIX cron syntax tells GitHub to run the script every Sunday at 00:00 UTC
-    - cron: "0 0 * * 0"
+    - cron: "0 16 * * 6"
   workflow_dispatch: # This allows you to manually trigger the script anytime from the GitHub UI
 
 jobs:
