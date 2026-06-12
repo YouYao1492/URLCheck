@@ -9,7 +9,7 @@ const dayjs = require("dayjs");
 const path = require("path");
 
 // --- 1. 設定區域 ---
-const CONFIG_SPREADSHEET_ID = "1TDY7sx4qipdaMupf-MZgrgQRr2FKjZ4KuBXMHjMT9a8"; // 請替換為你的主控試算表 ID
+const CONFIG_SPREADSHEET_ID = "1UCkfb57VOi21oj4nTm8RCXCW0z1UH9g7"; // 請替換為你的主控試算表 ID
 const CONFIG_SHEET_NAME = "配置";
 const KEYWORD = "your_keyword_here"; // 請替換為你的關鍵字
 const TIMEOUT_MS = 5000;
